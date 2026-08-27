@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+Untitled.ipynb
+
+# Large Datasets & Archives (Kaggle IEEE-CIS Fraud Detection dataset)
+*.csv
+*.zip
+*.tar.gz
+
+# Unnecessary screenshots & raw media captures
+Screenshot *.png
+media__*.png
+
+# Figma raw export directory
+figma/
+
+# Miscellaneous document drafts and templates
+*.pdf
+*.docx
+
+# Web Application (Excluded as requested)
+web/
+
+# Dependencies and build outputs
+node_modules/
+dist/
+dist-ssr/
+.vercel/
+*.local
+.env
+.env.*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini

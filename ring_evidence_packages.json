@@ -1,0 +1,1536 @@
+[
+  {
+    "ring_id": 530,
+    "risk_probability": 0.9949,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 114,
+    "transaction_ids": [
+      3402184,
+      3402497,
+      3404819,
+      3405908,
+      3406239,
+      3406700,
+      3408489,
+      3409002,
+      3409004,
+      3411615
+    ],
+    "ground_truth": {
+      "fraud_count": 4,
+      "fraud_rate": 0.0351,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 1865,
+      "edge_type_breakdown": {
+        "Shared Card": 1281,
+        "Shared Address+Card": 524,
+        "Shared Device": 6,
+        "Shared Network/IP": 54
+      },
+      "avg_node_degree": 32.72,
+      "max_node_degree": 50,
+      "hub_transaction_ids": [
+        3402497
+      ],
+      "signal_diversity": 4
+    },
+    "temporal": {
+      "time_span_seconds": 5309564.0,
+      "time_span_human": "61 days, 10:52:44",
+      "burst_pairs_within_1hr": 20,
+      "temporal_burst_ratio": 0.0121
+    },
+    "financial": {
+      "total_amount": 13448.27,
+      "avg_amount": 117.97,
+      "std_amount": 140.06,
+      "amount_concentration": 0.1228,
+      "unique_amounts": 44,
+      "most_common_amount": 107.95
+    },
+    "identity": {
+      "devices_used": [
+        "SM-G930P Build/NRD90M",
+        "iOS Device",
+        "Windows",
+        "Trident/7.0",
+        "SAMSUNG SM-G935A Build/NRD90M"
+      ],
+      "card_numbers": [
+        9680,
+        1607,
+        6580,
+        15066,
+        6659
+      ],
+      "email_domains": [
+        "gmail.com",
+        "aol.com",
+        "hotmail.com",
+        "icloud.com",
+        "yahoo.com",
+        "roadrunner.com",
+        "live.com",
+        "att.net",
+        "anonymous.com",
+        "cox.net",
+        "sbcglobal.net",
+        "yahoo.fr"
+      ],
+      "device_count": 2,
+      "card_count": 2,
+      "network_count": 1
+    },
+    "mismatch": {
+      "M4_fails": 0,
+      "M5_fails": 13,
+      "M6_fails": 26,
+      "mismatch_rate": 0.2786,
+      "drop_house_score": 0.2112
+    }
+  },
+  {
+    "ring_id": 7282,
+    "risk_probability": 0.9935,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 62,
+    "transaction_ids": [
+      3677597,
+      3677598,
+      3677599,
+      3677600,
+      3677601,
+      3677602,
+      3677603,
+      3677604,
+      3677605,
+      3677606
+    ],
+    "ground_truth": {
+      "fraud_count": 62,
+      "fraud_rate": 1.0,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 1385,
+      "edge_type_breakdown": {
+        "Shared Card": 133,
+        "Shared Address+Card": 511,
+        "Shared Device": 741
+      },
+      "avg_node_degree": 44.68,
+      "max_node_degree": 61,
+      "hub_transaction_ids": [
+        3677882,
+        3677883,
+        3677884
+      ],
+      "signal_diversity": 3
+    },
+    "temporal": {
+      "time_span_seconds": 4813983.0,
+      "time_span_human": "55 days, 17:13:03",
+      "burst_pairs_within_1hr": 57,
+      "temporal_burst_ratio": 0.3846
+    },
+    "financial": {
+      "total_amount": 11433.22,
+      "avg_amount": 184.41,
+      "std_amount": 77.39,
+      "amount_concentration": 0.0323,
+      "unique_amounts": 61,
+      "most_common_amount": 30.98
+    },
+    "identity": {
+      "devices_used": [
+        "TestDev-5"
+      ],
+      "card_numbers": [
+        90005,
+        17576,
+        10614,
+        7048,
+        5058
+      ],
+      "email_domains": [
+        "gmail.com"
+      ],
+      "device_count": 1,
+      "card_count": 16,
+      "network_count": 2
+    },
+    "mismatch": {
+      "M4_fails": 62,
+      "M5_fails": 62,
+      "M6_fails": 62,
+      "mismatch_rate": 1.0,
+      "drop_house_score": 0.1
+    }
+  },
+  {
+    "ring_id": 7279,
+    "risk_probability": 0.993,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 53,
+    "transaction_ids": [
+      3677563,
+      3677564,
+      3677565,
+      3677566,
+      3677567,
+      3677568,
+      3677569,
+      3677570,
+      3677571,
+      3677572
+    ],
+    "ground_truth": {
+      "fraud_count": 53,
+      "fraud_rate": 1.0,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 1055,
+      "edge_type_breakdown": {
+        "Shared Card": 93,
+        "Shared Address+Card": 401,
+        "Shared Device": 561
+      },
+      "avg_node_degree": 39.81,
+      "max_node_degree": 52,
+      "hub_transaction_ids": [
+        3677834,
+        3677835,
+        3677836
+      ],
+      "signal_diversity": 3
+    },
+    "temporal": {
+      "time_span_seconds": 4011679.0,
+      "time_span_human": "46 days, 10:21:19",
+      "burst_pairs_within_1hr": 48,
+      "temporal_burst_ratio": 0.3733
+    },
+    "financial": {
+      "total_amount": 11520.51,
+      "avg_amount": 217.37,
+      "std_amount": 23.2,
+      "amount_concentration": 0.0189,
+      "unique_amounts": 53,
+      "most_common_amount": 200.35
+    },
+    "identity": {
+      "devices_used": [
+        "TestDev-2"
+      ],
+      "card_numbers": [
+        90002,
+        13229,
+        6232,
+        2198,
+        15116
+      ],
+      "email_domains": [
+        "gmail.com"
+      ],
+      "device_count": 1,
+      "card_count": 16,
+      "network_count": 2
+    },
+    "mismatch": {
+      "M4_fails": 53,
+      "M5_fails": 53,
+      "M6_fails": 53,
+      "mismatch_rate": 1.0,
+      "drop_house_score": 0.1
+    }
+  },
+  {
+    "ring_id": 7284,
+    "risk_probability": 0.9926,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 43,
+    "transaction_ids": [
+      3677626,
+      3677627,
+      3677628,
+      3677629,
+      3677630,
+      3677631,
+      3677632,
+      3677633,
+      3677634,
+      3677635
+    ],
+    "ground_truth": {
+      "fraud_count": 43,
+      "fraud_rate": 1.0,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 514,
+      "edge_type_breakdown": {
+        "Shared Card": 190,
+        "Shared Address+Card": 71,
+        "Shared Device": 253
+      },
+      "avg_node_degree": 23.91,
+      "max_node_degree": 36,
+      "hub_transaction_ids": [
+        3677905,
+        3677906,
+        3677907
+      ],
+      "signal_diversity": 3
+    },
+    "temporal": {
+      "time_span_seconds": 2360603.0,
+      "time_span_human": "27 days, 7:43:23",
+      "burst_pairs_within_1hr": 38,
+      "temporal_burst_ratio": 0.3014
+    },
+    "financial": {
+      "total_amount": 8810.65,
+      "avg_amount": 204.9,
+      "std_amount": 102.25,
+      "amount_concentration": 0.0465,
+      "unique_amounts": 42,
+      "most_common_amount": 293.95
+    },
+    "identity": {
+      "devices_used": [
+        "TestDev-7"
+      ],
+      "card_numbers": [
+        90007,
+        4275,
+        8188,
+        11047,
+        13543
+      ],
+      "email_domains": [
+        "gmail.com"
+      ],
+      "device_count": 1,
+      "card_count": 11,
+      "network_count": 1
+    },
+    "mismatch": {
+      "M4_fails": 43,
+      "M5_fails": 43,
+      "M6_fails": 43,
+      "mismatch_rate": 1.0,
+      "drop_house_score": 0.1
+    }
+  },
+  {
+    "ring_id": 7280,
+    "risk_probability": 0.9917,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 48,
+    "transaction_ids": [
+      3677576,
+      3677577,
+      3677578,
+      3677579,
+      3677580,
+      3677581,
+      3677582,
+      3677583,
+      3677736,
+      3677737
+    ],
+    "ground_truth": {
+      "fraud_count": 48,
+      "fraud_rate": 1.0,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 933,
+      "edge_type_breakdown": {
+        "Shared Card": 38,
+        "Shared Address+Card": 300,
+        "Shared Device": 595
+      },
+      "avg_node_degree": 38.88,
+      "max_node_degree": 47,
+      "hub_transaction_ids": [
+        3677851,
+        3677852,
+        3677853
+      ],
+      "signal_diversity": 3
+    },
+    "temporal": {
+      "time_span_seconds": 4116651.0,
+      "time_span_human": "47 days, 15:30:51",
+      "burst_pairs_within_1hr": 43,
+      "temporal_burst_ratio": 0.4003
+    },
+    "financial": {
+      "total_amount": 8418.9,
+      "avg_amount": 175.39,
+      "std_amount": 98.82,
+      "amount_concentration": 0.0208,
+      "unique_amounts": 48,
+      "most_common_amount": 47.37
+    },
+    "identity": {
+      "devices_used": [
+        "TestDev-3"
+      ],
+      "card_numbers": [
+        90003,
+        13781,
+        8822,
+        14086,
+        14743
+      ],
+      "email_domains": [
+        "gmail.com"
+      ],
+      "device_count": 1,
+      "card_count": 15,
+      "network_count": 2
+    },
+    "mismatch": {
+      "M4_fails": 48,
+      "M5_fails": 48,
+      "M6_fails": 48,
+      "mismatch_rate": 1.0,
+      "drop_house_score": 0.1
+    }
+  },
+  {
+    "ring_id": 7278,
+    "risk_probability": 0.9909,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 48,
+    "transaction_ids": [
+      3677548,
+      3677549,
+      3677550,
+      3677551,
+      3677552,
+      3677553,
+      3677554,
+      3677555,
+      3677556,
+      3677557
+    ],
+    "ground_truth": {
+      "fraud_count": 48,
+      "fraud_rate": 1.0,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 881,
+      "edge_type_breakdown": {
+        "Shared Device": 406,
+        "Shared Address+Card": 364,
+        "Shared Card": 111
+      },
+      "avg_node_degree": 36.71,
+      "max_node_degree": 47,
+      "hub_transaction_ids": [
+        3677818,
+        3677819,
+        3677820
+      ],
+      "signal_diversity": 3
+    },
+    "temporal": {
+      "time_span_seconds": 4464741.0,
+      "time_span_human": "51 days, 16:12:21",
+      "burst_pairs_within_1hr": 43,
+      "temporal_burst_ratio": 0.3726
+    },
+    "financial": {
+      "total_amount": 7305.23,
+      "avg_amount": 152.19,
+      "std_amount": 85.65,
+      "amount_concentration": 0.0208,
+      "unique_amounts": 48,
+      "most_common_amount": 30.44
+    },
+    "identity": {
+      "devices_used": [
+        "TestDev-1"
+      ],
+      "card_numbers": [
+        90001,
+        1592,
+        17407,
+        3451,
+        7568
+      ],
+      "email_domains": [
+        "gmail.com"
+      ],
+      "device_count": 1,
+      "card_count": 9,
+      "network_count": 2
+    },
+    "mismatch": {
+      "M4_fails": 48,
+      "M5_fails": 48,
+      "M6_fails": 48,
+      "mismatch_rate": 1.0,
+      "drop_house_score": 0.1
+    }
+  },
+  {
+    "ring_id": 7281,
+    "risk_probability": 0.9899,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 45,
+    "transaction_ids": [
+      3677584,
+      3677585,
+      3677586,
+      3677587,
+      3677588,
+      3677589,
+      3677590,
+      3677591,
+      3677592,
+      3677593
+    ],
+    "ground_truth": {
+      "fraud_count": 45,
+      "fraud_rate": 1.0,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 710,
+      "edge_type_breakdown": {
+        "Shared Card": 99,
+        "Shared Address+Card": 311,
+        "Shared Device": 300
+      },
+      "avg_node_degree": 31.56,
+      "max_node_degree": 44,
+      "hub_transaction_ids": [
+        3677871,
+        3677872,
+        3677873
+      ],
+      "signal_diversity": 3
+    },
+    "temporal": {
+      "time_span_seconds": 4153670.0,
+      "time_span_human": "48 days, 1:47:50",
+      "burst_pairs_within_1hr": 40,
+      "temporal_burst_ratio": 0.2962
+    },
+    "financial": {
+      "total_amount": 8671.67,
+      "avg_amount": 192.7,
+      "std_amount": 103.65,
+      "amount_concentration": 0.0222,
+      "unique_amounts": 45,
+      "most_common_amount": 33.16
+    },
+    "identity": {
+      "devices_used": [
+        "TestDev-4"
+      ],
+      "card_numbers": [
+        90004,
+        13341,
+        9380,
+        3167,
+        10299
+      ],
+      "email_domains": [
+        "gmail.com"
+      ],
+      "device_count": 1,
+      "card_count": 10,
+      "network_count": 2
+    },
+    "mismatch": {
+      "M4_fails": 45,
+      "M5_fails": 45,
+      "M6_fails": 45,
+      "mismatch_rate": 1.0,
+      "drop_house_score": 0.1
+    }
+  },
+  {
+    "ring_id": 7277,
+    "risk_probability": 0.9899,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 41,
+    "transaction_ids": [
+      3677539,
+      3677540,
+      3677541,
+      3677542,
+      3677543,
+      3677544,
+      3677545,
+      3677546,
+      3677547,
+      3677720
+    ],
+    "ground_truth": {
+      "fraud_count": 41,
+      "fraud_rate": 1.0,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 660,
+      "edge_type_breakdown": {
+        "Shared Device": 300,
+        "Shared Address+Card": 303,
+        "Shared Card": 57
+      },
+      "avg_node_degree": 32.2,
+      "max_node_degree": 40,
+      "hub_transaction_ids": [
+        3677803,
+        3677804,
+        3677805
+      ],
+      "signal_diversity": 3
+    },
+    "temporal": {
+      "time_span_seconds": 4146796.0,
+      "time_span_human": "47 days, 23:53:16",
+      "burst_pairs_within_1hr": 36,
+      "temporal_burst_ratio": 0.3158
+    },
+    "financial": {
+      "total_amount": 3657.0,
+      "avg_amount": 89.2,
+      "std_amount": 50.18,
+      "amount_concentration": 0.0244,
+      "unique_amounts": 41,
+      "most_common_amount": 23.49
+    },
+    "identity": {
+      "devices_used": [
+        "TestDev-0"
+      ],
+      "card_numbers": [
+        90000,
+        12242,
+        6813,
+        10009,
+        11129
+      ],
+      "email_domains": [
+        "gmail.com"
+      ],
+      "device_count": 1,
+      "card_count": 11,
+      "network_count": 2
+    },
+    "mismatch": {
+      "M4_fails": 41,
+      "M5_fails": 41,
+      "M6_fails": 41,
+      "mismatch_rate": 1.0,
+      "drop_house_score": 0.1
+    }
+  },
+  {
+    "ring_id": 7283,
+    "risk_probability": 0.9861,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 37,
+    "transaction_ids": [
+      3677612,
+      3677613,
+      3677614,
+      3677615,
+      3677616,
+      3677617,
+      3677618,
+      3677619,
+      3677620,
+      3677621
+    ],
+    "ground_truth": {
+      "fraud_count": 37,
+      "fraud_rate": 1.0,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 482,
+      "edge_type_breakdown": {
+        "Shared Card": 127,
+        "Shared Address+Card": 264,
+        "Shared Device": 91
+      },
+      "avg_node_degree": 26.05,
+      "max_node_degree": 36,
+      "hub_transaction_ids": [
+        3677899,
+        3677900,
+        3677901
+      ],
+      "signal_diversity": 3
+    },
+    "temporal": {
+      "time_span_seconds": 3839669.0,
+      "time_span_human": "44 days, 10:34:29",
+      "burst_pairs_within_1hr": 32,
+      "temporal_burst_ratio": 0.3002
+    },
+    "financial": {
+      "total_amount": 6446.1,
+      "avg_amount": 174.22,
+      "std_amount": 116.01,
+      "amount_concentration": 0.027,
+      "unique_amounts": 37,
+      "most_common_amount": 48.64
+    },
+    "identity": {
+      "devices_used": [
+        "TestDev-6"
+      ],
+      "card_numbers": [
+        90006,
+        6363,
+        8038,
+        4366,
+        10224
+      ],
+      "email_domains": [
+        "gmail.com"
+      ],
+      "device_count": 1,
+      "card_count": 8,
+      "network_count": 2
+    },
+    "mismatch": {
+      "M4_fails": 37,
+      "M5_fails": 37,
+      "M6_fails": 37,
+      "mismatch_rate": 1.0,
+      "drop_house_score": 0.1
+    }
+  },
+  {
+    "ring_id": 1075,
+    "risk_probability": 0.9772,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 91,
+    "transaction_ids": [
+      3404385,
+      3404446,
+      3405246,
+      3406027,
+      3406765,
+      3407097,
+      3407154,
+      3409301,
+      3421470,
+      3424526
+    ],
+    "ground_truth": {
+      "fraud_count": 17,
+      "fraud_rate": 0.1868,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 1435,
+      "edge_type_breakdown": {
+        "Shared Card": 1429,
+        "Shared Network/IP": 6
+      },
+      "avg_node_degree": 31.54,
+      "max_node_degree": 50,
+      "hub_transaction_ids": [
+        3523779
+      ],
+      "signal_diversity": 2
+    },
+    "temporal": {
+      "time_span_seconds": 5183182.0,
+      "time_span_human": "59 days, 23:46:22",
+      "burst_pairs_within_1hr": 17,
+      "temporal_burst_ratio": 0.013
+    },
+    "financial": {
+      "total_amount": 9456.46,
+      "avg_amount": 103.92,
+      "std_amount": 96.89,
+      "amount_concentration": 0.0879,
+      "unique_amounts": 42,
+      "most_common_amount": 117.0
+    },
+    "identity": {
+      "devices_used": [
+        "iOS Device",
+        "Windows",
+        "MacOS",
+        "QTASUN1 Build/NRD90M"
+      ],
+      "card_numbers": [
+        15528,
+        5912,
+        5714,
+        6957
+      ],
+      "email_domains": [
+        "gmail.com",
+        "yahoo.com",
+        "aol.com",
+        "anonymous.com",
+        "comcast.net",
+        "hotmail.com",
+        "msn.com",
+        "aim.com",
+        "sbcglobal.net",
+        "me.com"
+      ],
+      "device_count": 1,
+      "card_count": 4,
+      "network_count": 1
+    },
+    "mismatch": {
+      "M4_fails": 0,
+      "M5_fails": 23,
+      "M6_fails": 37,
+      "mismatch_rate": 0.3797,
+      "drop_house_score": 0.2944
+    }
+  },
+  {
+    "ring_id": 7286,
+    "risk_probability": 0.9721,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 39,
+    "transaction_ids": [
+      3677647,
+      3677648,
+      3677649,
+      3677650,
+      3677651,
+      3677652,
+      3677653,
+      3677654,
+      3677655,
+      3677656
+    ],
+    "ground_truth": {
+      "fraud_count": 39,
+      "fraud_rate": 1.0,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 621,
+      "edge_type_breakdown": {
+        "Shared Device": 276,
+        "Shared Address+Card": 240,
+        "Shared Card": 105
+      },
+      "avg_node_degree": 31.85,
+      "max_node_degree": 38,
+      "hub_transaction_ids": [
+        3677915,
+        3677916,
+        3677917
+      ],
+      "signal_diversity": 3
+    },
+    "temporal": {
+      "time_span_seconds": 3539310.0,
+      "time_span_human": "40 days, 23:08:30",
+      "burst_pairs_within_1hr": 36,
+      "temporal_burst_ratio": 0.4592
+    },
+    "financial": {
+      "total_amount": 3639.57,
+      "avg_amount": 93.32,
+      "std_amount": 44.56,
+      "amount_concentration": 0.0256,
+      "unique_amounts": 39,
+      "most_common_amount": 41.99
+    },
+    "identity": {
+      "devices_used": [
+        "TestDev-9"
+      ],
+      "card_numbers": [
+        90009
+      ],
+      "email_domains": [
+        "gmail.com"
+      ],
+      "device_count": 1,
+      "card_count": 3,
+      "network_count": 0
+    },
+    "mismatch": {
+      "M4_fails": 39,
+      "M5_fails": 39,
+      "M6_fails": 39,
+      "mismatch_rate": 1.0,
+      "drop_house_score": 0.1
+    }
+  },
+  {
+    "ring_id": 7285,
+    "risk_probability": 0.965,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 22,
+    "transaction_ids": [
+      3677640,
+      3677641,
+      3677642,
+      3677643,
+      3677644,
+      3677645,
+      3677646,
+      3677772,
+      3677773,
+      3677774
+    ],
+    "ground_truth": {
+      "fraud_count": 22,
+      "fraud_rate": 1.0,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 161,
+      "edge_type_breakdown": {
+        "Shared Card": 21,
+        "Shared Address+Card": 35,
+        "Shared Device": 105
+      },
+      "avg_node_degree": 14.64,
+      "max_node_degree": 21,
+      "hub_transaction_ids": [
+        3677910,
+        3677911,
+        3677912
+      ],
+      "signal_diversity": 3
+    },
+    "temporal": {
+      "time_span_seconds": 2157888.0,
+      "time_span_human": "24 days, 23:24:48",
+      "burst_pairs_within_1hr": 19,
+      "temporal_burst_ratio": 0.3333
+    },
+    "financial": {
+      "total_amount": 4736.71,
+      "avg_amount": 215.3,
+      "std_amount": 61.53,
+      "amount_concentration": 0.0455,
+      "unique_amounts": 22,
+      "most_common_amount": 104.05
+    },
+    "identity": {
+      "devices_used": [
+        "TestDev-8"
+      ],
+      "card_numbers": [
+        90008
+      ],
+      "email_domains": [
+        "gmail.com"
+      ],
+      "device_count": 1,
+      "card_count": 3,
+      "network_count": 0
+    },
+    "mismatch": {
+      "M4_fails": 22,
+      "M5_fails": 22,
+      "M6_fails": 22,
+      "mismatch_rate": 1.0,
+      "drop_house_score": 0.1
+    }
+  },
+  {
+    "ring_id": 7292,
+    "risk_probability": 0.9615,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 7,
+    "transaction_ids": [
+      3677790,
+      3677791,
+      3677792,
+      3677793,
+      3677794,
+      3677795,
+      3677796
+    ],
+    "ground_truth": {
+      "fraud_count": 7,
+      "fraud_rate": 1.0,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 21,
+      "edge_type_breakdown": {
+        "Shared Device": 21
+      },
+      "avg_node_degree": 6.0,
+      "max_node_degree": 6,
+      "hub_transaction_ids": [
+        3677790,
+        3677791,
+        3677792
+      ],
+      "signal_diversity": 1
+    },
+    "temporal": {
+      "time_span_seconds": 2536.0,
+      "time_span_human": "0:42:16",
+      "burst_pairs_within_1hr": 6,
+      "temporal_burst_ratio": 1.0
+    },
+    "financial": {
+      "total_amount": 1353.48,
+      "avg_amount": 193.35,
+      "std_amount": 1.92,
+      "amount_concentration": 0.1429,
+      "unique_amounts": 7,
+      "most_common_amount": 189.87
+    },
+    "identity": {
+      "devices_used": [
+        "TestDev-10"
+      ],
+      "card_numbers": [
+        90010
+      ],
+      "email_domains": [
+        "gmail.com"
+      ],
+      "device_count": 1,
+      "card_count": 1,
+      "network_count": 0
+    },
+    "mismatch": {
+      "M4_fails": 7,
+      "M5_fails": 7,
+      "M6_fails": 7,
+      "mismatch_rate": 1.0,
+      "drop_house_score": 0.1
+    }
+  },
+  {
+    "ring_id": 7293,
+    "risk_probability": 0.9545,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 6,
+    "transaction_ids": [
+      3677797,
+      3677798,
+      3677799,
+      3677800,
+      3677801,
+      3677802
+    ],
+    "ground_truth": {
+      "fraud_count": 6,
+      "fraud_rate": 1.0,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 15,
+      "edge_type_breakdown": {
+        "Shared Device": 15
+      },
+      "avg_node_degree": 5.0,
+      "max_node_degree": 5,
+      "hub_transaction_ids": [
+        3677797,
+        3677798,
+        3677799
+      ],
+      "signal_diversity": 1
+    },
+    "temporal": {
+      "time_span_seconds": 3363.0,
+      "time_span_human": "0:56:03",
+      "burst_pairs_within_1hr": 5,
+      "temporal_burst_ratio": 1.0
+    },
+    "financial": {
+      "total_amount": 1041.05,
+      "avg_amount": 173.51,
+      "std_amount": 1.86,
+      "amount_concentration": 0.1667,
+      "unique_amounts": 6,
+      "most_common_amount": 170.72
+    },
+    "identity": {
+      "devices_used": [
+        "TestDev-11"
+      ],
+      "card_numbers": [
+        90011
+      ],
+      "email_domains": [
+        "gmail.com"
+      ],
+      "device_count": 1,
+      "card_count": 1,
+      "network_count": 0
+    },
+    "mismatch": {
+      "M4_fails": 6,
+      "M5_fails": 6,
+      "M6_fails": 6,
+      "mismatch_rate": 1.0,
+      "drop_house_score": 0.1
+    }
+  },
+  {
+    "ring_id": 7289,
+    "risk_probability": 0.9473,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 15,
+    "transaction_ids": [
+      3677686,
+      3677687,
+      3677688,
+      3677689,
+      3677690,
+      3677691,
+      3677692,
+      3677693,
+      3677694,
+      3677695
+    ],
+    "ground_truth": {
+      "fraud_count": 15,
+      "fraud_rate": 1.0,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 105,
+      "edge_type_breakdown": {
+        "Shared Card": 105
+      },
+      "avg_node_degree": 14.0,
+      "max_node_degree": 14,
+      "hub_transaction_ids": [
+        3677686,
+        3677687,
+        3677688
+      ],
+      "signal_diversity": 1
+    },
+    "temporal": {
+      "time_span_seconds": 3411.0,
+      "time_span_human": "0:56:51",
+      "burst_pairs_within_1hr": 14,
+      "temporal_burst_ratio": 1.0
+    },
+    "financial": {
+      "total_amount": 1197.78,
+      "avg_amount": 79.85,
+      "std_amount": 1.65,
+      "amount_concentration": 0.0667,
+      "unique_amounts": 15,
+      "most_common_amount": 77.2
+    },
+    "identity": {
+      "devices_used": [],
+      "card_numbers": [
+        90012
+      ],
+      "email_domains": [
+        "gmail.com"
+      ],
+      "device_count": 0,
+      "card_count": 1,
+      "network_count": 0
+    },
+    "mismatch": {
+      "M4_fails": 15,
+      "M5_fails": 15,
+      "M6_fails": 15,
+      "mismatch_rate": 1.0,
+      "drop_house_score": 0.1
+    }
+  },
+  {
+    "ring_id": 1449,
+    "risk_probability": 0.9427,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 41,
+    "transaction_ids": [
+      3406247,
+      3412305,
+      3432759,
+      3434197,
+      3434216,
+      3437758,
+      3439458,
+      3451385,
+      3451386,
+      3451387
+    ],
+    "ground_truth": {
+      "fraud_count": 12,
+      "fraud_rate": 0.2927,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 385,
+      "edge_type_breakdown": {
+        "Shared Card": 276,
+        "Shared Address+Card": 21,
+        "Shared Network/IP": 88
+      },
+      "avg_node_degree": 18.78,
+      "max_node_degree": 34,
+      "hub_transaction_ids": [
+        3451385,
+        3451386,
+        3451387
+      ],
+      "signal_diversity": 3
+    },
+    "temporal": {
+      "time_span_seconds": 5036352.0,
+      "time_span_human": "58 days, 6:59:12",
+      "burst_pairs_within_1hr": 9,
+      "temporal_burst_ratio": 0.0238
+    },
+    "financial": {
+      "total_amount": 10043.39,
+      "avg_amount": 244.96,
+      "std_amount": 170.31,
+      "amount_concentration": 0.1707,
+      "unique_amounts": 23,
+      "most_common_amount": 500.0
+    },
+    "identity": {
+      "devices_used": [
+        "iOS Device",
+        "MacOS",
+        "SAMSUNG SM-G965U Build/R16NW",
+        "Z983 Build/NMF26F"
+      ],
+      "card_numbers": [
+        6773,
+        6697,
+        1974,
+        1724,
+        1359
+      ],
+      "email_domains": [
+        "aol.com",
+        "anonymous.com",
+        "gmail.com",
+        "yahoo.com",
+        "mac.com",
+        "me.com",
+        "icloud.com",
+        "sbcglobal.net",
+        "hotmail.com",
+        "comcast.net"
+      ],
+      "device_count": 1,
+      "card_count": 1,
+      "network_count": 1
+    },
+    "mismatch": {
+      "M4_fails": 0,
+      "M5_fails": 4,
+      "M6_fails": 6,
+      "mismatch_rate": 0.2632,
+      "drop_house_score": 0.843
+    }
+  },
+  {
+    "ring_id": 7291,
+    "risk_probability": 0.9426,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 11,
+    "transaction_ids": [
+      3677709,
+      3677710,
+      3677711,
+      3677712,
+      3677713,
+      3677714,
+      3677715,
+      3677716,
+      3677717,
+      3677718
+    ],
+    "ground_truth": {
+      "fraud_count": 11,
+      "fraud_rate": 1.0,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 55,
+      "edge_type_breakdown": {
+        "Shared Card": 55
+      },
+      "avg_node_degree": 10.0,
+      "max_node_degree": 10,
+      "hub_transaction_ids": [
+        3677709,
+        3677710,
+        3677711
+      ],
+      "signal_diversity": 1
+    },
+    "temporal": {
+      "time_span_seconds": 3116.0,
+      "time_span_human": "0:51:56",
+      "burst_pairs_within_1hr": 10,
+      "temporal_burst_ratio": 1.0
+    },
+    "financial": {
+      "total_amount": 613.26,
+      "avg_amount": 55.75,
+      "std_amount": 1.4,
+      "amount_concentration": 0.0909,
+      "unique_amounts": 11,
+      "most_common_amount": 53.66
+    },
+    "identity": {
+      "devices_used": [],
+      "card_numbers": [
+        90014
+      ],
+      "email_domains": [
+        "gmail.com"
+      ],
+      "device_count": 0,
+      "card_count": 1,
+      "network_count": 0
+    },
+    "mismatch": {
+      "M4_fails": 11,
+      "M5_fails": 11,
+      "M6_fails": 11,
+      "mismatch_rate": 1.0,
+      "drop_house_score": 0.1
+    }
+  },
+  {
+    "ring_id": 7287,
+    "risk_probability": 0.9368,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 11,
+    "transaction_ids": [
+      3677662,
+      3677663,
+      3677664,
+      3677665,
+      3677666,
+      3677667,
+      3677668,
+      3677669,
+      3677670,
+      3677671
+    ],
+    "ground_truth": {
+      "fraud_count": 11,
+      "fraud_rate": 1.0,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 55,
+      "edge_type_breakdown": {
+        "Shared Card": 55
+      },
+      "avg_node_degree": 10.0,
+      "max_node_degree": 10,
+      "hub_transaction_ids": [
+        3677662,
+        3677663,
+        3677664
+      ],
+      "signal_diversity": 1
+    },
+    "temporal": {
+      "time_span_seconds": 3327.0,
+      "time_span_human": "0:55:27",
+      "burst_pairs_within_1hr": 10,
+      "temporal_burst_ratio": 1.0
+    },
+    "financial": {
+      "total_amount": 2076.59,
+      "avg_amount": 188.78,
+      "std_amount": 1.91,
+      "amount_concentration": 0.0909,
+      "unique_amounts": 11,
+      "most_common_amount": 186.75
+    },
+    "identity": {
+      "devices_used": [],
+      "card_numbers": [
+        90010
+      ],
+      "email_domains": [
+        "gmail.com"
+      ],
+      "device_count": 0,
+      "card_count": 1,
+      "network_count": 0
+    },
+    "mismatch": {
+      "M4_fails": 11,
+      "M5_fails": 11,
+      "M6_fails": 11,
+      "mismatch_rate": 1.0,
+      "drop_house_score": 0.1
+    }
+  },
+  {
+    "ring_id": 7299,
+    "risk_probability": 0.9346,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 8,
+    "transaction_ids": [
+      3677959,
+      3677960,
+      3677961,
+      3677962,
+      3677963,
+      3677964,
+      3677965,
+      3677966
+    ],
+    "ground_truth": {
+      "fraud_count": 8,
+      "fraud_rate": 1.0,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 28,
+      "edge_type_breakdown": {
+        "Shared Card": 28
+      },
+      "avg_node_degree": 7.0,
+      "max_node_degree": 7,
+      "hub_transaction_ids": [
+        3677959,
+        3677960,
+        3677961
+      ],
+      "signal_diversity": 1
+    },
+    "temporal": {
+      "time_span_seconds": 871.0,
+      "time_span_human": "0:14:31",
+      "burst_pairs_within_1hr": 7,
+      "temporal_burst_ratio": 1.0
+    },
+    "financial": {
+      "total_amount": 1191.45,
+      "avg_amount": 148.93,
+      "std_amount": 1.96,
+      "amount_concentration": 0.125,
+      "unique_amounts": 8,
+      "most_common_amount": 146.48
+    },
+    "identity": {
+      "devices_used": [],
+      "card_numbers": [
+        90005
+      ],
+      "email_domains": [
+        "gmail.com"
+      ],
+      "device_count": 0,
+      "card_count": 1,
+      "network_count": 0
+    },
+    "mismatch": {
+      "M4_fails": 8,
+      "M5_fails": 8,
+      "M6_fails": 8,
+      "mismatch_rate": 1.0,
+      "drop_house_score": 0.1
+    }
+  },
+  {
+    "ring_id": 66,
+    "risk_probability": 0.9327,
+    "action_tier": "HARD BLOCK",
+    "ring_size": 46,
+    "transaction_ids": [
+      3400572,
+      3400707,
+      3402203,
+      3409075,
+      3417502,
+      3418041,
+      3420045,
+      3421545,
+      3425410,
+      3438711
+    ],
+    "ground_truth": {
+      "fraud_count": 4,
+      "fraud_rate": 0.087,
+      "is_fraud_ring": true
+    },
+    "topology": {
+      "total_edges": 375,
+      "edge_type_breakdown": {
+        "Shared Card": 369,
+        "Shared Device": 6
+      },
+      "avg_node_degree": 16.3,
+      "max_node_degree": 21,
+      "hub_transaction_ids": [
+        3478001,
+        3481125
+      ],
+      "signal_diversity": 2
+    },
+    "temporal": {
+      "time_span_seconds": 5325398.0,
+      "time_span_human": "61 days, 15:16:38",
+      "burst_pairs_within_1hr": 7,
+      "temporal_burst_ratio": 0.0117
+    },
+    "financial": {
+      "total_amount": 5485.54,
+      "avg_amount": 119.25,
+      "std_amount": 110.92,
+      "amount_concentration": 0.1304,
+      "unique_amounts": 27,
+      "most_common_amount": 47.95
+    },
+    "identity": {
+      "devices_used": [
+        "VS425PP Build/LMY47V"
+      ],
+      "card_numbers": [
+        13351,
+        1486,
+        7511
+      ],
+      "email_domains": [
+        "gmail.com",
+        "yahoo.com",
+        "anonymous.com",
+        "comcast.net",
+        "msn.com",
+        "hotmail.com"
+      ],
+      "device_count": 1,
+      "card_count": 3,
+      "network_count": 0
+    },
+    "mismatch": {
+      "M4_fails": 0,
+      "M5_fails": 9,
+      "M6_fails": 20,
+      "mismatch_rate": 0.4328,
+      "drop_house_score": 0.0571
+    }
+  }
+]
