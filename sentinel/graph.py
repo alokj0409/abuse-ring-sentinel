@@ -33,6 +33,7 @@ class Ring:
 @dataclass(frozen=True)
 class Discovery:
     rings: tuple[Ring, ...]
+    link_types: tuple[str, ...]
     oversized_components: int
     oversized_transactions: int
     isolated_transactions: int
@@ -83,6 +84,24 @@ def apply_vocabulary(frame: pd.DataFrame, vocabulary: dict[str, set[str]]) -> pd
     return result
 
 
+def filter_period_frequencies(frame: pd.DataFrame, min_frequency: int = 2, max_frequency: int = 100) -> pd.DataFrame:
+    """Retain repeated fingerprints within an entire offline period.
+
+    This can discover previously unseen identities, but it uses the complete
+    period's unlabeled graph. It is unsuitable for online claims without a
+    causal rolling-window implementation.
+    """
+    if min_frequency < 2 or max_frequency < min_frequency:
+        raise ValueError("Expected 2 <= min_frequency <= max_frequency")
+    result = frame.copy()
+    for name in FINGERPRINTS:
+        column = f"fp_{name}"
+        counts = result[column].value_counts(dropna=True)
+        valid = set(counts[(counts >= min_frequency) & (counts <= max_frequency)].index)
+        result[column] = result[column].where(result[column].isin(valid), pd.NA)
+    return result
+
+
 def _groups(frame: pd.DataFrame, column: str) -> Iterable[tuple[int, ...]]:
     for members in frame.loc[frame[column].notna()].groupby(column, sort=False)["TransactionID"]:
         ids = tuple(int(value) for value in members[1])
@@ -90,10 +109,18 @@ def _groups(frame: pd.DataFrame, column: str) -> Iterable[tuple[int, ...]]:
             yield ids
 
 
-def discover_rings(frame: pd.DataFrame, min_size: int = 2, max_size: int = 500) -> Discovery:
+def discover_rings(
+    frame: pd.DataFrame,
+    min_size: int = 2,
+    max_size: int = 500,
+    link_types: tuple[str, ...] | None = None,
+) -> Discovery:
     """Find typed-link connected components without materializing dense cliques."""
     if min_size < 2 or max_size < min_size:
         raise ValueError("Expected 2 <= min_size <= max_size")
+    link_types = link_types or tuple(FINGERPRINTS)
+    if not set(link_types).issubset(FINGERPRINTS):
+        raise ValueError("Unknown component link type")
     ids = [int(value) for value in frame["TransactionID"]]
     if len(ids) != len(set(ids)):
         raise ValueError("Duplicate TransactionID values would corrupt ring discovery")
@@ -120,9 +147,10 @@ def discover_rings(frame: pd.DataFrame, min_size: int = 2, max_size: int = 500) 
         counts[name] = 0
         for members in _groups(frame, f"fp_{name}"):
             counts[name] += 1
-            anchor = members[0]
-            for member in members[1:]:
-                union(anchor, member)
+            if name in link_types:
+                anchor = members[0]
+                for member in members[1:]:
+                    union(anchor, member)
 
     components: dict[int, list[int]] = {}
     for identifier in ids:
@@ -141,12 +169,16 @@ def discover_rings(frame: pd.DataFrame, min_size: int = 2, max_size: int = 500) 
             ordered = tuple(sorted(members))
             rings.append(Ring(f"AR-{ordered[0]}", ordered))
     rings.sort(key=lambda ring: ring.transaction_ids[0])
-    return Discovery(tuple(rings), oversized, oversized_transactions, isolated, counts)
+    return Discovery(tuple(rings), link_types, oversized, oversized_transactions, isolated, counts)
 
 
-def typed_edges(frame: pd.DataFrame, ring: Ring) -> list[tuple[int, int, str]]:
+def typed_edges(
+    frame: pd.DataFrame,
+    ring: Ring,
+    indexed: pd.DataFrame | None = None,
+) -> list[tuple[int, int, str]]:
     """Return local-index directed edges for each relationship type in a ring."""
-    indexed = frame.set_index("TransactionID")
+    indexed = indexed if indexed is not None else frame.set_index("TransactionID")
     if not indexed.index.is_unique:
         raise ValueError("TransactionID must be unique to extract typed edges")
     indexed = indexed.loc[list(ring.transaction_ids)]

@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 
 from sentinel.benchmark import choose_threshold, metrics
+from sentinel.calibration import SigmoidCalibrator
 from sentinel.features import FEATURE_COLUMNS, extract_ring_features
 from sentinel.graph import discover_rings, make_fingerprints
 from test_graph import row
@@ -28,6 +29,13 @@ class FeatureAndBenchmarkTests(unittest.TestCase):
         report = metrics(labels, scores, threshold)
         self.assertEqual(report["f1"], 1.0)
         self.assertEqual((report["tp"], report["fp"], report["fn"]), (2, 0, 0))
+
+    def test_calibration_preserves_score_order(self):
+        labels = np.array([0, 0, 1, 1])
+        scores = np.array([0.1, 0.2, 0.8, 0.9])
+        calibrated = SigmoidCalibrator().fit(scores, labels).transform(scores)
+        self.assertTrue(np.all(np.diff(calibrated) > 0))
+        self.assertTrue(np.all((calibrated > 0) & (calibrated < 1)))
 
 
 if __name__ == "__main__":
