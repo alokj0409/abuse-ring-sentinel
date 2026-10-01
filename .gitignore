@@ -1,5 +1,6 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*.egg-info/
 *.py[cod]
 *$py.class
 
@@ -23,10 +24,11 @@ figma/
 *.pdf
 *.docx
 
-# Web Application (Excluded as requested)
-web/
+# Version web source; generated assets remain excluded below.
 
 # Dependencies and build outputs
+.venv/
+artifacts/
 node_modules/
 dist/
 dist-ssr/
