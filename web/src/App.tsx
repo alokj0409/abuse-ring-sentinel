@@ -833,37 +833,13 @@ function RingMonitorPage({ navigate }: { navigate: (p: Page, id?: string) => voi
 
 async function fetchLiveGeminiReport(ring: Ring): Promise<string> {
   const endpoint = '/api/investigate';
-
-  const prompt = `
-You are senior financial crime analyst at Razorpay.
-Generate a formal, highly professional Forensic Fraud Investigation Report for Candidate Abuse Ring ${ring.id}:
-
-[EVIDENCE PACKAGE]
-- Ring ID: ${ring.id}
-- GraphSAGE Risk Score: ${ring.riskScore.toFixed(1)}%
-- Risk Level: ${ring.riskLevel.toUpperCase()}
-- Ring Scale: ${ring.transactions} Transactions | 82 Graph Edges
-- Time Window: ${ring.timeSpan}
-- Financial Exposure: INR ${(ring.exposure).toLocaleString('en-IN')}
-- Shared Identity Signals: ${ring.sharedDevices} Devices | ${ring.sharedNetworks} Networks | ${ring.signalDiversity} Signal Types
-
-STRICT FORMALITY CONSTRAINTS:
-1. ABSOLUTELY NO EMOJIS, ICONS, OR CONVERSATIONAL FILLER.
-2. DO NOT USE DECORATIVE HORIZONTAL DIVIDERS LIKE '---' OR '***'.
-3. USE FORMAL ENTERPRISE BANKING TERMINOLOGY ONLY.
-
-Structure into 4 formal sections:
-### SECTION 1: EXECUTIVE BRIEFING AND ACTION RECOMMENDATION
-### SECTION 2: NETWORK TOPOLOGY AND CROSS-SIGNAL LINKAGE ANALYSIS
-### SECTION 3: TEMPORAL BURST AND FINANCIAL EXPOSURE ANALYSIS
-### SECTION 4: OPERATIONAL MITIGATION PROTOCOLS FOR RISK OPS
-`;
-
+  const accessToken = window.prompt('Enter the analyst access token for report generation');
+  if (!accessToken) return 'Report generation cancelled.';
   try {
     const res = await fetch(endpoint, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ringId: ring.id, prompt })
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${accessToken}` },
+      body: JSON.stringify({ ringId: ring.id })
     });
     if (!res.ok) {
       const errJson = await res.json().catch(() => ({}));
@@ -988,7 +964,6 @@ function RingDetailPage({ ringId, navigate }: { ringId: string; navigate: (p: Pa
     setIsGenerating(true);
     const reportText = await fetchLiveGeminiReport(ring);
     setCurrentReport(reportText);
-    localStorage.setItem(`gemini_report_${ring.id}`, reportText);
     setIsGenerating(false);
   };
   const [activeTypes, setActiveTypes] = useState<Set<string>>(new Set(Object.keys(EDGE_COLOR)));

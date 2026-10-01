@@ -1,0 +1,71 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{url}
+
+\begin{document}
+\title{Abuse-Ring Sentinel: A Reproducible Offline Study of Typed GraphSAGE for Payment-Fraud Candidate Rings}
+\author{\IEEEauthorblockN{Abuse-Ring Sentinel Project}}
+\maketitle
+
+\begin{abstract}
+We study an offline workflow that groups related payment transactions and ranks candidate groups using a typed graph neural network. The labeled IEEE-CIS training files contain 590,540 transactions. A chronological 56/14/30 split, training-only fingerprint vocabulary, and conservative component policy produce 8,096 eligible candidate rings in the held-out period. A positive ring is defined as one containing at least one fraud-labeled transaction; this proxy does not establish coordinated abuse. On identical candidate rings, a Random Forest baseline obtains ROC-AUC 0.7618 and PR-AUC 0.3045, while a two-layer typed GraphSAGE obtains ROC-AUC 0.7790 and PR-AUC 0.3222. At thresholds selected on validation data, ring recall is 50.4\% and 55.8\%, respectively. However, only 2,497 of 6,125 fraud-labeled held-out transactions enter eligible rings. A classifier cannot recover the other 3,628. The prototype includes a label-free evidence viewer and an optional server-side language-model report endpoint, but no live scoring or payment action. This report distinguishes measured ring classification from end-to-end fraud detection and records the principal coverage limitation.
+\end{abstract}
+
+\begin{IEEEkeywords}
+fraud detection, transaction graphs, GraphSAGE, temporal evaluation, candidate coverage
+\end{IEEEkeywords}
+
+\section{Introduction}
+Identity reuse can connect transactions that are difficult to assess independently. Graph construction is also fragile: a common device string, network attribute, or other high-frequency identifier can merge unrelated transactions into very large components. We evaluate a constrained graph policy and a typed graph classifier on public labeled data rather than claim a deployed risk system. GraphSAGE is an inductive neighborhood-aggregation method \cite{graphsage}; our implementation performs relation-specific aggregation over transaction subgraphs.
+
+\section{Data and Candidate Construction}
+We join the IEEE-CIS labeled \texttt{train\_transaction.csv} and \texttt{train\_identity.csv} files by transaction ID \cite{ieeecis}. The separate competition test files have no public fraud labels and are not used for reported metrics. Sorting by \texttt{TransactionDT}, with transaction ID breaking ties, yields 330,702 training, 82,676 validation, and 177,162 held-out transactions. No synthetic transactions are used in classifier training or evaluation.
+
+Seven composite fingerprints are computed from non-label attributes: device, loose card, strict card, address plus card, network, email plus card, and browser. Each composite requires all of its constituent fields. Fingerprint values are retained only if their frequency in the training period is between 2 and 100 inclusive. The same frozen vocabulary is applied to later periods. This is an offline period-level evaluation, not a causal streaming simulation.
+
+Only device, strict-card, and address-plus-card relationships join connected components. The other four relationships remain typed evidence within each component. Components with 2--500 transactions are eligible candidate rings; singleton and larger components are excluded. This policy yields 12,624 training rings, 5,961 validation rings, and 8,096 held-out rings. The ring label is positive if at least one member transaction has \texttt{isFraud}=1. It is a classification proxy, not a validated coordinated-fraud label.
+
+\section{Models and Evaluation Protocol}
+The Random Forest baseline uses 150 trees, maximum depth 10, balanced class weights, and 13 ring-level features. Features include ring size, temporal concentration, amount statistics, identity mismatch, relationship diversity, and counts of distinct device, card, and network fingerprints. Fraud labels and fraud counts are excluded from predictors.
+
+The graph model uses seven transaction-node features and the same 13 ring features. Two typed GraphSAGE layers aggregate relation-specific messages into 64-dimensional hidden states. Mean and max graph pooling are concatenated with standardized ring features, then classified by a multilayer head. Scalers are fit on training data only. The model is trained with weighted binary cross-entropy and a fixed random seed. The epoch with the best validation PR-AUC is selected; in the reported eight-epoch run this is epoch six. A sigmoid calibrator and F1-maximizing classification threshold are fitted on validation scores. The held-out period is scored after these choices. ROC-AUC, average precision (PR-AUC), Brier score, precision, recall, and F1 are computed on the same 8,096 candidate rings.
+
+\section{Results}
+\begin{table}[t]
+\caption{Held-out candidate-ring classification (8,096 rings, 736 positive)}
+\label{tab:results}
+\centering
+\begin{tabular}{lrr}
+\toprule
+Metric & Random Forest & Typed GraphSAGE \\
+\midrule
+ROC-AUC & 0.7618 & 0.7790 \\
+PR-AUC & 0.3045 & 0.3222 \\
+Brier score & 0.0739 & 0.0730 \\
+Precision & 0.2323 & 0.2556 \\
+Recall & 0.5041 & 0.5584 \\
+F1 & 0.3180 & 0.3507 \\
+True positives & 371 & 411 \\
+False positives & 1,226 & 1,197 \\
+False negatives & 365 & 325 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+GraphSAGE improves ROC-AUC by 0.0172 and PR-AUC by 0.0177 on this candidate set. Its validation-selected threshold is 0.163179, versus 0.163780 for the baseline. These are probability cutoffs after calibration; they are not operational action thresholds. Both models make substantial errors. GraphSAGE identifies 83 positive rings missed by the baseline, while the baseline identifies 43 positive rings missed by GraphSAGE; both miss 282.
+
+\section{Coverage and Failure Analysis}
+The held-out period contains 6,125 fraud-labeled transactions. Eligible candidate rings contain 2,497 of them (40.8\%); 3,628 are outside eligible rings. At its validation-selected threshold, GraphSAGE-positive rings contain 1,684 fraud-labeled transactions, 27.5\% of all fraud-labeled transactions in the held-out period. The Random Forest-positive rings contain 1,588 (25.9\%). These transaction-capture figures are descriptive and must not be confused with ring-level recall. They do not establish prospective, real-time detection: the candidate graph is constructed over each complete offline partition. Missed positive rings have median size six; false-positive rings have median size 17 for both models. Future work should examine missing identity attributes, previously unseen identifiers, and causal rolling-window graph construction.
+
+\section{Analyst Prototype and Safeguards}
+A research dashboard displays 40 held-out examples selected by score rank without consulting labels: the top 25, ten middle-ranked, and five lowest-ranked rings. It shows aggregate features and relationship-pair counts, not raw fingerprint values. A verifier can record a local-browser review state; there is no shared case database or enforcement integration. An optional server endpoint can send only the selected, label-free evidence to a configured Gemini model for a draft report. The endpoint requires an analyst access token and a server-side provider key. Live provider behavior has not been validated in a deployed environment, and generated statements require human verification.
+
+\section{Limitations and Conclusion}
+This is a single-split, single-seed offline study. The ring label is derived from transaction fraud labels and is not an independent annotation of collusion. Graph construction over an entire evaluation period does not demonstrate low-latency online inference. Probability calibration on one validation period does not authorize automatic blocking, step-up authentication, or financial-loss claims. The original exploratory notebook and earlier paper draft contain different, unsupported headline metrics; this paper reports the versioned pipeline's reproducible result. The typed GraphSAGE model modestly improves classification on eligible rings, while candidate coverage remains the dominant unresolved problem.
+
+\begin{thebibliography}{2}
+\bibitem{graphsage} W. L. Hamilton, R. Ying, and J. Leskovec, ``Inductive Representation Learning on Large Graphs,'' in \emph{Advances in Neural Information Processing Systems}, vol. 30, 2017. [Online]. Available: \url{https://proceedings.neurips.cc/paper/2017/hash/5dd9db5e033da9c6fb5ba83c7a7ebea9-Abstract.html}
+\bibitem{ieeecis} IEEE Computational Intelligence Society, ``IEEE-CIS Fraud Detection,'' Kaggle competition dataset. [Online]. Available: \url{https://www.kaggle.com/c/ieee-fraud-detection/data}
+\end{thebibliography}
+\end{document}
